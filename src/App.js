@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import Movie from "./components/Movie";
+
+const MOVIE_API = "https://sometimes-maybe-flaky-api.gdshive.io"; // API key should not be stored as plain text here. 
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const [movies, setMovies] = useState([]);
+
+  useEffect(async () => {
+    fetch(MOVIE_API)
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        setMovies(data);
+      });
+  }, [])
+
+  return <div className="movie-container">
+    {movies.length > 0 &&
+      movies.map((movie) => <Movie key={movie.name} {...movie} />)}
+  </div>
 }
 
-export default App;
+export default App; 
