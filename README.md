@@ -4,9 +4,10 @@
 3. the display of the detail page by clicking the movie
 4. the return to main page from detail page
 5. filter movies by genre
+6. filter movies by year 
 
 ### Chanllenges Faced: 
-1. Attempted to complete filter by year function, but this leads to the `movies` (array of movie objects) to become empty, thus leading to type error. 
+1. Interactions/behaviours between filter by movies and filter by genre
 2. Attempted to call API multiple times, however, the server may not respond well to frequent request and run into Error 500.
 3. Attempted to dynamically generate the filter buttons in Filter.js, while manipulating the content on the App.js. However, this leads to the error of "Cannot update a component (`App`) while rendering a different component (`Filter`)." 
 
