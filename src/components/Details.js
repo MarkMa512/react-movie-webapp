@@ -7,7 +7,7 @@ function Details(props) {
         <div className="details">
             <div className="details-inner">
                 <button className="main-button" onClick={() => props.setTrigger(false)}> Main Page</button>
-                {props.children}
+                {props.children} {/* This displays the content of the detail page */}
             </div>
         </div>
     ) : ""; // otherwise return empty String

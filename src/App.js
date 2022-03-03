@@ -15,7 +15,7 @@ function App() {
   // use another state for the filtering function 
   const [filtered, setFiltered] = useState([]);
 
-  // initialize the states to for the filtering function 
+  // initialize the states to for the filtering function, initialize as 'all' to display all the genre/years
   const [activeGenre, setActiveGenre] = useState('all');
   const [activeYear, setActiveYear] = useState('all');
 
@@ -23,7 +23,7 @@ function App() {
   const genre = [];
   const year = [];
 
-  // fecth the data over from the API; fetch it once only
+  // fecth the data over from the API; fetch it once only so as to preserve the resources
   useEffect(() => {
     fetchMovies();
   }, []);
@@ -34,8 +34,8 @@ function App() {
       .then((response) => response.json())
       .then((data) => {
         // console.log(data);
-        setMovies(data);
-        setFiltered(data);
+        setMovies(data); // initialize movies
+        setFiltered(data); // initialize filtered
       })
   };
 
@@ -58,9 +58,8 @@ function App() {
 
   return <>
     <div>
-
       {/* attempt to generate the filter component dynamically while 
-      modifying the App.js   */}
+      modifying the App.js */}
       {/* <Filter
         dataArray={uniq_genre}
         category={'genre'}
@@ -73,7 +72,7 @@ function App() {
         activeCategory={activeYear} setActiveCategory={setActiveYear} /> */}
     </div>
 
-    <div className="filter">
+    <div className="filter-container">
       <FilterGenre uniq_genre={uniq_genre} movies={movies} setFiltered={setFiltered}
         activeGenre={activeGenre} setActiveGenre={setActiveGenre} />
 
@@ -81,9 +80,7 @@ function App() {
         activeYear={activeYear} setActiveYear={setActiveYear} />
     </div>
 
-
-
-    {/* pass in the movies to generate moview components */}
+    {/* pass in the movies to generate movie components */}
     <div className="movie-container">
       {filtered.length > 0 &&
         filtered.map((movie) => <Movie key={movie.name} {...movie} />)}
