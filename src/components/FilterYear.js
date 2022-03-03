@@ -10,7 +10,7 @@ function FilterYear({ movies, setFiltered, activeYear, setActiveYear }) {
                 return;
             }
             const filtered = movies.filter(
-                (movie) => movie.productionYear.toSting().includes(activeYear)
+                (movie) => movie.productionYear.toString().includes(activeYear)
             );
             setFiltered(filtered);
         }, [activeYear]);
