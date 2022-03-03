@@ -34,7 +34,7 @@ function Filter({ dataArray, category, setActiveCategory, activeCategory, setFil
 
     return (
         <div className="filter-container">
-            <button key='all' className={activeCategory === "all" ? "active" : ""}
+            <button key="all" className={activeCategory === "all" ? "active" : ""}
                 onClick={(setActiveCategory('all'))}>All {category} </button>
             {/* Dynamically generate the buttons from the dataArray (uniq_genre, uniq_year) passed in*/}
             {dataArray.map(item => (

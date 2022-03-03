@@ -17,7 +17,7 @@ function FilterGenre({ movies, setFiltered, activeGenre, setActiveGenre }) {
     }, [activeGenre]
   );
   return (
-    <div className='filter-container'>
+    <div className="filter-container">
       <button className={activeGenre === "all" ? "active" : ""} onClick={() => setActiveGenre('all')} >All Genre</button>
       {/* 
       Error: Cannot update a component (`App`) while rendering a different component (`FilterGenre`). To locate the bad setState() call inside `FilterGenre`,

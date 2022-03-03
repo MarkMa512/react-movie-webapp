@@ -15,7 +15,7 @@ function FilterYear({ movies, setFiltered, activeYear, setActiveYear }) {
             setFiltered(filtered);
         }, [activeYear]);
     return (
-        <div className='filter-container'>
+        <div className="filter-container">
             <button className={activeYear === "all" ? "active" : ""} onClick={() => setActiveYear('all')} >All Years</button>
             <button className={activeYear === "2003" ? "active" : ""} onClick={() => setActiveYear('2003')} >2003</button>
             <button className={activeYear === "2006" ? "active" : ""} onClick={() => setActiveYear('2006')} >2006</button>
