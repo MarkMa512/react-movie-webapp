@@ -1,7 +1,8 @@
 ### Hello! 
 This is my attempt learn React in a Functional Programming Approach. I took referrence from the following tutorials:  
-https://www.youtube.com/watch?v=jc9_Bqzy2YQ&t=418s
-https://www.youtube.com/watch?v=sZ0bZGfg_m4&t=914s
+https://www.youtube.com/watch?v=jc9_Bqzy2YQ
+
+https://www.youtube.com/watch?v=sZ0bZGfg_m4
 
 
 ### Accomplished Features: 
