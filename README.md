@@ -1,3 +1,9 @@
+### Hello! 
+This is my attempt learn React in a Functional Programming Approach. I took referrence from the following tutorials:  
+https://www.youtube.com/watch?v=jc9_Bqzy2YQ&t=418s
+https://www.youtube.com/watch?v=sZ0bZGfg_m4&t=914s
+
+
 ### Accomplished Features: 
 1. a grid of movies 
 2. the movie detail page for every movie 
