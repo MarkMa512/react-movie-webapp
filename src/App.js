@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Movie from "./components/Movie";
-// import Filter from "./components/Filter";
-import FilterGenre from "./components/FilterGenre";
-import FilterYear from "./components/FilterYear";
+import Filter from "./components/Filter";
+// import FilterGenre from "./components/FilterGenre";
+// import FilterYear from "./components/FilterYear";
 
 const MOVIE_API = "https://sometimes-maybe-flaky-api.gdshive.io"; // API key should not be stored as plain text here. 
 
@@ -16,8 +16,8 @@ function App() {
   const [filtered, setFiltered] = useState([]);
 
   // initialize the states to for the filtering function, initialize as 'all' to display all the genre/years
-  const [activeGenre, setActiveGenre] = useState('all');
-  const [activeYear, setActiveYear] = useState('all');
+  const [activeCategory, setActiveCategory] = useState('all');
+  // const [activeYear, setActiveYear] = useState('all');
 
   // initiate 2 arrays to dynamically generate buttons for the filter funtion 
   const genre = [];
@@ -43,7 +43,7 @@ function App() {
   // console.log(filtered);
 
   // populate genre and year from movie 
-  movies.length > 0 && movies.map((movie) => genre.push(movie.genre)) && movies.map((movie) => year.push(movie.productionYear))
+  movies.length > 0 && movies.map((movie) => genre.push(movie.genre)) && movies.map((movie) => year.push(movie.productionYear));
 
   // remove the duplicates
   const uniq_year = [...new Set(year)];
@@ -60,25 +60,31 @@ function App() {
     <div>
       {/* attempt to generate the filter component dynamically while 
       modifying the App.js */}
-      {/* <Filter
-        dataArray={uniq_genre}
-        category={'genre'}
-        movies={movies} setFiltered={setFiltered}
-        activeCategory={activeGenre} setActiveCategory={setActiveGenre} />
       <Filter
-        dataArray={uniq_year}
-        category={'productionYear'}
         movies={movies} setFiltered={setFiltered}
-        activeCategory={activeYear} setActiveCategory={setActiveYear} /> */}
+        activeCategory={activeCategory} setActiveCategory={setActiveCategory} >
+        <div className="filter-container">
+          <button key="all" className={activeCategory === "all" ? "active" : ""}
+            onClick={(setActiveCategory('all'))}>All {"gen"} </button>
+          {/* Dynamically generate the buttons from the dataArray (uniq_genre, uniq_year) passed in*/}
+          {uniq_genre.map(item => (
+            <button key={item} className={activeCategory === { item } ? "active" : ""}
+              onClick={(setActiveCategory(item))}>
+              {item}
+            </button>
+          ))}
+        </div>
+      </Filter>
+
     </div>
 
-    <div className="filter-container">
+    {/* <div className="filter-container">
       <FilterGenre uniq_genre={uniq_genre} movies={movies} setFiltered={setFiltered}
         activeGenre={activeGenre} setActiveGenre={setActiveGenre} />
 
       <FilterYear uniq_year={uniq_year} movies={movies} setFiltered={setFiltered}
         activeYear={activeYear} setActiveYear={setActiveYear} />
-    </div>
+    </div> */}
 
     {/* pass in the movies to generate movie components */}
     <div className="movie-container">

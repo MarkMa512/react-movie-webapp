@@ -18,13 +18,13 @@ function Filter({ dataArray, category, setActiveCategory, activeCategory, setFil
         }
         if (category === 'genre') {
             // if the active category is genre, display movies of active genre
-            const filtered = movies.filter((movie) => movie.genre === activeCategory);
+            const filtered = movies.filter((movie) => movie.genre.includes(activeCategory));
             console.log(filtered);
             setFiltered(filtered);
         }
         if (category === 'productionYear') {
             // of the active  category is year, display moviesof that year 
-            const filtered = movies.filter((movie) => movie.productionYear === activeCategory);
+            const filtered = movies.filter((movie) => movie.productionYear.toString().includes(activeCategory));
             console.log(filtered);
             setFiltered(filtered);
         }
